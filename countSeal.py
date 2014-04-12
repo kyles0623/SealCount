@@ -10,8 +10,8 @@ submission = r.get_submission(submission_id='22t2vs')
 
 def get_count(comment):
 	count = 0
-	if(hasattr(comment, 'body') and string.find(comment.body,'seal')):
-		count = count + 1
+	if(hasattr(comment, 'body')):
+		count = count + comment.body.count('seal')
 	if(hasattr(comment, 'replies')):
 		for reply in comment.replies:
 			count = count + get_count(reply)
